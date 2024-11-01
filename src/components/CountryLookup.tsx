@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 type Props = {}
 
 const CountryLookup = (props: Props) => {
-    const [country, setCountry] = useState('United States')
+    const [country, setCountry] = useState('Loading...')
 
     useEffect(() => {
         const getCountry = async () => {
@@ -25,3 +25,4 @@ const CountryLookup = (props: Props) => {
 }
 
 export default CountryLookup
+
