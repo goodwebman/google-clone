@@ -4,21 +4,22 @@ import SearchBox from './SearchBox'
 
 import { RiSettings3Line } from 'react-icons/ri'
 import { TbGridDots } from 'react-icons/tb'
+import SearchHeaderOptions from './SearchHeaderOptions'
 
 type Props = {}
 
 const SearchHeader = (props: Props) => {
 	return (
 		<header className='sticky top-0 bg-white '>
-			<div className='flex w-full p-6 items-center justify-between'>
+			<div className='flex w-full p-6 px-20 items-center justify-between'>
 				<Link href=''>
 					<Image
 						src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png'
 						alt='Google logo'
-						width={300}
+						width={100}
 						height={100}
 						priority
-						style={{ width: 'auto' }}
+						
 					/>
 				</Link>
 
@@ -33,6 +34,7 @@ const SearchHeader = (props: Props) => {
 					Sign in
 				</button>
 			</div>
+			<SearchHeaderOptions />
 		</header>
 	)
 }
