@@ -1,28 +1,22 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
-type Props = {}
+export default function CountryLookup() {
+  const [country, setCountry] = useState('United States');
 
-const CountryLookup = (props: Props) => {
-    const [country, setCountry] = useState('Loading...')
+  useEffect(() => {
+    const getCountry = async () => {
+      const response = await fetch(
+        `https://extreme-ip-lookup.com/json/?key=${process.env.NEXT_PUBLIC_IP_API_KEY}`
+      )
+        .then((res) => res.json())
+        .then((data) => data.country);
+      if (!response) return;
+      setCountry(response);
+    };
+    getCountry();
+  }, []);
 
-    useEffect(() => {
-        const getCountry = async () => {
-          const response = await fetch(
-            `https://extreme-ip-lookup.com/json/?key=${process.env.NEXT_PUBLIC_IP_API_KEY}`
-          )
-            .then((res) => res.json())
-            .then((data) => data.country);
-          if (!response) return;
-          setCountry(response);
-        };
-        getCountry();
-      }, []);
-  return (
-    <div>{country}</div>
-  )
+  return <div>{country}</div>;
 }
-
-export default CountryLookup
-

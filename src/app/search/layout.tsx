@@ -1,17 +1,12 @@
-import SearchHeader from '@/components/SearchHeader'
+import SearchHeader from '@/components/SearchHeader';
+import './../globals.css';
 import { ReactNode } from 'react'
 
-import './../globals.css'
-
-type Props = {}
-
-const layout = ({ children }: { children: ReactNode }) => {
-	return (
-		<div>
-			<SearchHeader />
-			{children}
-		</div>
-	)
+export default function layout({ children } : {children: ReactNode}) {
+  return (
+    <div>
+      <SearchHeader />
+      {children}
+    </div>
+  );
 }
-
-export default layout
